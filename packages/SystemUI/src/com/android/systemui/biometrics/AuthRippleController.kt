@@ -137,6 +137,10 @@ constructor(
     }
 
     private fun showUnlockRippleInternal(biometricSourceType: BiometricSourceType) {
+        if (animationDuration == 0L) {
+            return
+        }
+
         val keyguardNotShowing = !keyguardStateController.isShowing
         val unlockNotAllowed =
             !keyguardUpdateMonitor.isUnlockingWithBiometricAllowed(biometricSourceType)
@@ -182,6 +186,10 @@ constructor(
     }
 
     private fun showUnlockedRipple() {
+        if (animationDuration == 0L) {
+            return
+        }
+
         notificationShadeWindowController.setForcePluginOpen(true, this)
 
         mView.startUnlockedRipple(
