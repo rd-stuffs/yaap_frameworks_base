@@ -277,6 +277,7 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
         unlockedRippleAnimator?.cancel()
 
         if (animationDuration == 0L) {
+            onAnimationEnd?.run()
             return // Ignore if duration is set to 0
         }
 
